@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Vortex | <%= title %></title>
+    <link rel="stylesheet" href="./css/gxmes.css">
+</head>
+  <%- include("partials/navbar") %>
+<body>
+    <center style="margin-top: 10%">
+      <div>
+        <input placeholder="Search..." id="searchbar" type="text" onkeyup="search();">
+      </div>
+      <br/>
+      <div class="gameslist" id="gameslistlol">
+          <div class="card">
+            <img src="./img/logo.png">
+            <p>1v1.lol</p>
+          </div>
+          <div class="card"
+            onclick="location.href='/'">
+            <img src="./img/eaglercraft.jpeg">
+            <p>Eaglercraft</p>
+          </div>
+          <div class="card">
+            <img src="./img/roblox.jpeg">
+            <p>Roblox</p>
+          </div>
+      </div>
+    </center>
+  <script>
+    function search() {
+      var input, list, btn, p, i;
+      input = document.getElementById("searchbar").value.toUpperCase();
+      list = document.getElementById("gameslistlol");
+      btn = list.getElementsByTagName("div");
+
+      for (i = 0; i < btn.length; i++) {
+        p = btn[i].getElementsByTagName("p")[0];
+        if (p.innerHTML.toUpperCase().indexOf(input) > -1) {
+          btn[i].style.display = "";
+        } else {
+          btn[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
